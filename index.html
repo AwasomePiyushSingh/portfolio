@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Kumar | Odoo ERP Developer & Python Specialist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        header {
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .contact-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--card-bg);
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text-muted);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            color: var(--primary-color);
+        }
+
+        .availability {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Container & Sections */
+        section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-main);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Skills specific */
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #f1f5f9;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Timeline/Experience */
+        .timeline-item {
+            border-left: 2px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .timeline-item ul {
+            padding-left: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-main);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none; /* Add hamburger menu for mobile in a full build */
+            }
+            header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-brand">Piyush Kumar</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+        </div>
+    </nav>
+
+    <header id="home">
+        <h1>Piyush Kumar</h1>
+        <h2>Odoo ERP Developer | Python & AWS Specialist</h2>
+        <div class="contact-badges">
+            <a href="mailto:piyushkumar19496@gmail.com" class="badge"><i class="fas fa-envelope"></i> piyushkumar19496@gmail.com</a>
+            <a href="tel:+917500598770" class="badge"><i class="fas fa-phone"></i> +91 7500598770</a>
+            <a href="https://www.linkedin.com/in/piyush-kumar-73487a211" target="_blank" class="badge"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.github.com/AwasomePiyush" target="_blank" class="badge"><i class="fab fa-github"></i> GitHub</a>
+            <span class="badge"><i class="fas fa-map-marker-alt"></i> New Delhi, India</span>
+        </div>
+        <div class="availability">
+            <i class="fas fa-check-circle"></i> Available to join from April 10, 2026
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">Professional Summary</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem;">
+            Results-driven Software Developer with 4+ years of hands-on experience specializing in Odoo ERP (v11-18) implementation, customization, and cross-version migrations. Skilled in Python backend development, REST API integrations, and architecting robust cloud-based ETL pipelines using AWS and Apache Airflow. Proven track record of optimizing database performance, enhancing system security, and automating complex business workflows.
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="grid-2">
+            <div class="card skill-category">
+                <h3>Odoo Expertise</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Odoo 11-18 (Community & Enterprise)</span>
+                    <span class="skill-tag">ORM</span>
+                    <span class="skill-tag">QWeb / OWL.js</span>
+                    <span class="skill-tag">XML Views</span>
+                    <span class="skill-tag">Odoo.sh</span>
+                    <span class="skill-tag">Module Migration</span>
+                    <span class="skill-tag">Automated Actions</span>
+                </div>
+            </div>
+            <div class="card skill-category">
+                <h3>Backend & Database</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">PostgreSQL (Optimization)</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">JWT</span>
+                </div>
+            </div>
+            <div class="card skill-category">
+                <h3>Cloud & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS (EC2, S3, IAM, Redshift)</span>
+                    <span class="skill-tag">Apache Airflow</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Git/GitHub/SVN</span>
+                    <span class="skill-tag">CI/CD</span>
+                </div>
+            </div>
+            <div class="card skill-category">
+                <h3>Frontend & Integration</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">JavaScript / HTML5 / CSS3</span>
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">Google Maps API / FASTag</span>
+                    <span class="skill-tag">AES Data Encryption</span>
+                    <span class="skill-tag">3rd Party API Integration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            
+            <div class="timeline-item">
+                <div class="timeline-date">Sep 2024 - Apr 2026</div>
+                <div class="timeline-title">Software Developer</div>
+                <div class="timeline-subtitle">Binary Semantics Ltd | Gurgaon</div>
+                <ul>
+                    <li>Developed and customized Odoo 18 Enterprise modules for Logistics, HR, and ERP automation.</li>
+                    <li>Led full-scale Odoo migration from v12 to v18, including Python business logic, XML views, and data models.</li>
+                    <li>Migrated file storage to AWS S3, reducing database size by 30-60% and improving performance.</li>
+                    <li>Architected a config-driven ETL pipeline (Python + Apache Airflow) to replicate Odoo PostgreSQL data to Amazon Redshift.</li>
+                    <li>Developed real-time FASTag vehicle tracking integrated with Google Maps API.</li>
+                    <li>Implemented AES data encryption for sensitive module fields and integrated external APIs (ULIP, PAN, DL, SMS).</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Mar 2024 - Sep 2024</div>
+                <div class="timeline-title">Assistant Software Developer</div>
+                <div class="timeline-subtitle">Ascensive Technology | Noida</div>
+                <ul>
+                    <li>Managed and customized Odoo Enterprise implementations across versions 15, 16, and 17.</li>
+                    <li>Worked extensively with Odoo.sh for deployment, CI/CD pipelines, and staging environment management.</li>
+                    <li>Handled client communication, requirement gathering, and independent production issue resolution.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Jun 2022 - Mar 2024</div>
+                <div class="timeline-title">Software Developer</div>
+                <div class="timeline-subtitle">Chadha Industries Pvt Ltd | Delhi</div>
+                <ul>
+                    <li>Led end-to-end Odoo ERP implementation and customization for Sales, Inventory, Purchase, CRM, and HR.</li>
+                    <li>Performed Odoo migration from v11 to v13 for the company's eCommerce platform.</li>
+                    <li>Integrated a Django + Odoo 13 + React.js eCommerce platform using REST APIs.</li>
+                    <li>Optimized PostgreSQL queries for improved ERP performance.</li>
+                </ul>
+            </div>
+
+             <div class="timeline-item">
+                <div class="timeline-date">Mar 2022 - Jun 2022</div>
+                <div class="timeline-title">Python Developer Intern</div>
+                <div class="timeline-subtitle">Angles Virtual World Pvt Ltd | Delhi</div>
+                <ul>
+                    <li>Built 3 algorithmic trading strategies and 50+ custom indicators for F&O markets using Python & MongoDB.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects" style="background: var(--card-bg); border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+        <h2 class="section-title">Key Projects</h2>
+        <div class="grid-2">
+            <div class="card" style="border: 1px solid #e2e8f0; box-shadow: none;">
+                <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Odoo ETL Pipeline to Amazon Redshift</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Designed a config-driven, incremental ETL pipeline using Python and Apache Airflow to sync Odoo (PostgreSQL) data to Redshift for analytics dashboards, enabling near real-time BI reporting.</p>
+            </div>
+            <div class="card" style="border: 1px solid #e2e8f0; box-shadow: none;">
+                <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">FASTag Real-Time Vehicle Tracking</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Built a logistics tracking module in Odoo 18 integrating FASTag APIs and Google Maps for live vehicle tracking and automated toll management.</p>
+            </div>
+            <div class="card" style="border: 1px solid #e2e8f0; box-shadow: none;">
+                <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Odoo v12 to v18 Full Migration</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Led complete framework migration including Python logic refactoring, XML view upgrades, ORM API standardizations, and comprehensive regression testing.</p>
+            </div>
+            <div class="card" style="border: 1px solid #e2e8f0; box-shadow: none;">
+                <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Flask JWT Task Manager API</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Built a secure REST API using Flask and Flask-RESTful with JWT-based authentication and authorization for protected CRUD operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" style="text-align: center;">
+        <h2 class="section-title">Education</h2>
+        <div style="display: inline-block; text-align: left;">
+            <h3 style="font-size: 1.3rem;">Bachelor of Technology (B.Tech) in Electrical Engineering</h3>
+            <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">DIT University, Dehradun | 2013-2017</p>
+            <p style="color: var(--text-muted);">CGPA: 8.40/10</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Piyush Kumar. Built with HTML & CSS.</p>
+    </footer>
+
+</body>
+</html>
